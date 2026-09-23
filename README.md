@@ -25,6 +25,14 @@ Build a small **User Directory** app using the free [JSONPlaceholder API](https:
 3. **Search**
    - Add a search field on the list screen that filters users by name (local filtering is fine).
 
+### What it could look like
+
+Here's a reference of what we have in mind — you don't need to match this design, it just shows the expected screens and functionality. Your own layout and styling choices are welcome.
+
+| User list | Search | User detail |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/01-user-list.png" width="250" alt="User list screen"> | <img src="docs/screenshots/02-search.png" width="250" alt="Search filtering the list"> | <img src="docs/screenshots/03-user-detail.png" width="250" alt="User detail screen"> |
+
 ### Bonus (optional — only if you have time left)
 
 - Pull-to-refresh on the list.
