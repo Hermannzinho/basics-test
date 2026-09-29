@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/user_list_screen.dart';
 
 void main() {
   runApp(const BasicsTestApp());
@@ -15,7 +16,7 @@ class BasicsTestApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const PlaceholderHomeScreen(),
+      home: const UserListScreen(),
     );
   }
 }

@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install JDK 21 and configure Flutter",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$ErrorActionPreference='Stop'; $jdkRoot=Join-Path $env:LOCALAPPDATA 'Programs\\Temurin-21'; $archive=Join-Path $env:TEMP 'temurin-21.zip'; New-Item -ItemType Directory -Force -Path $jdkRoot | Out-Null; Invoke-WebRequest -Uri 'https://api.adoptium.net/v3/binary/latest/21/ga/windows/x64/jdk/hotspot/normal/eclipse' -OutFile $archive; Expand-Archive -Path $archive -DestinationPath $jdkRoot -Force; $jdk=Get-ChildItem $jdkRoot -Directory | Select-Object -First 1 -ExpandProperty FullName; if (-not (Test-Path (Join-Path $jdk 'bin\\java.exe'))) { throw \"JDK installation not found under $jdkRoot\" }; & (Join-Path $jdk 'bin\\java.exe') -version; & 'C:\\develop\\flutter\\bin\\flutter.bat' config --jdk-dir=$jdk; & 'C:\\develop\\flutter\\bin\\flutter.bat' doctor -v"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify Android debug build",
+			"type": "shell",
+			"command": "C:\\develop\\flutter\\bin\\flutter.bat",
+			"args": [
+				"build",
+				"apk",
+				"--debug"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
